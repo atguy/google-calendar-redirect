@@ -14,6 +14,7 @@
 				return;
 			}
           var startDate = new Date().toISOString().slice(0, 10).replace(/-/g,"");
+			alert(startDate);
 
 /*			// Get the current date in YYYYMMDD format
 			var now = new Date();
@@ -30,7 +31,8 @@
 */
 			// Generate the Google Calendar URL and redirect to it
 			var url = "https://www.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(eventName) + "&dates=" + startDate + "/" + startDate;
-			window.location.href = url;
+			//window.location.href = url;
+console.log(url)
 		}
 	</script>
   </head>
