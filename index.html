@@ -13,7 +13,12 @@
 				alert("Please enter an event name");
 				return;
 			}
-          var startDate = new Date().toISOString().slice(0, 10).replace(/-/g,"");
+	//          var startDate = new Date().toISOString().slice(0, 10).replace(/-/g,""); //this worked but showed GMT always
+			//this uses the user's timezone
+			var startDate = new Date();
+			var tzOffset = startDate.getTimezoneOffset();
+			startDate.setMinutes(startDate.getMinutes() - tzOffset);
+			startDate = startDate.toISOString().slice(0, 10).replace(/-/g, "");
 			alert(startDate);
 
 /*			// Get the current date in YYYYMMDD format
