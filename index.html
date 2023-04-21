@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Event to Google Calendar</title>
+  <script>
+		window.onload = function() {
+			// Get the event name from the URL query parameter
+			var params = new URLSearchParams(window.location.search);
+			var eventName = params.get("event-name");
+
+			// Check if the event name is empty
+			if (!eventName) {
+				alert("Please enter an event name");
+				return;
+			}
+          var startDate = new Date().toISOString().slice(0, 10).replace(/-/g,"");
+
+/*			// Get the current date in YYYYMMDD format
+			var now = new Date();
+			var year = now.getFullYear();
+			var month = now.getMonth() + 1;
+			var day = now.getDate();
+			if (month < 10) {
+				month = "0" + month;
+			}
+			if (day < 10) {
+				day = "0" + day;
+			}
+			var startDate = year + month + day;
+*/
+			// Generate the Google Calendar URL and redirect to it
+			var url = "https://www.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(eventName) + "&dates=" + startDate + "/" + startDate;
+			window.location.href = url;
+		}
+	</script>
+  </head>
+<body>
+	<h1>Add Event to Google Calendar</h1>
+	<p>Please wait while we redirect you to Google Calendar...</p>
+</body>
+</html>
