@@ -19,30 +19,17 @@
 			var tzOffset = startDate.getTimezoneOffset();
 			startDate.setMinutes(startDate.getMinutes() - tzOffset);
 			startDate = startDate.toISOString().slice(0, 10).replace(/-/g, "");
-			alert(startDate);
+			//alert(startDate);
 
-/*			// Get the current date in YYYYMMDD format
-			var now = new Date();
-			var year = now.getFullYear();
-			var month = now.getMonth() + 1;
-			var day = now.getDate();
-			if (month < 10) {
-				month = "0" + month;
-			}
-			if (day < 10) {
-				day = "0" + day;
-			}
-			var startDate = year + month + day;
-*/
 			// Generate the Google Calendar URL and redirect to it
 			var url = "https://www.google.com/calendar/render?action=TEMPLATE&text=" + encodeURIComponent(eventName) + "&dates=" + startDate + "/" + startDate;
-			//window.location.href = url;
-console.log(url)
+			window.location.href = url;
+			//console.log(url)
 		}
 	</script>
   </head>
 <body>
-	<h1>Adding Event</h1>
+	<h1>Adding Event.</h1>
 	<p>One sec while we redirect you to Google Calendar...</p>
 </body>
 </html>
